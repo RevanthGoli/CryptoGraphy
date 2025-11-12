@@ -7,7 +7,7 @@ const Footer = () => {
             <hr />
             <div className="footer-bottom">
                 <div className="footer-bottom-left">
-                    © 2025 Revanth Goli. All rights reserved.
+                    © 2025 Cryptography. All rights reserved.
                 </div>
             </div>
         </div>
