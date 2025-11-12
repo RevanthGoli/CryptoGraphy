@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 import './Navbar.css'
 import logo from '../../assets/logo1.png'
 import arrow from '../../assets/arrow_icon.png'
-import { CoinContext } from '../../context/Coincontext';
+import { CoinContext } from '../../context/Coincontext'
+
 
 const Navbar = () => {
 

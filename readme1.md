@@ -16,3 +16,6 @@ Step 13 : Import font style and font family to index.css
 Step 14 : Get API key from coingecko website.
 
 # 	CG-iB32RLzwyRn4Yuj8WrwkRmAd (API KEY)
+
+npm install react-anchor-link-smooth-scroll                                                             
+                                                                               

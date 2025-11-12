@@ -3,15 +3,19 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 10%;
-    color: #121212;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-bottom: 2px solid #3c3c3c;  
+    color: #121212; /* This color is likely for text/icons, but let's assume the background is dark based on other element styles */
+    /* Adjusting box-shadow and border-bottom for a dark theme consistency,
+       since you used #3c3c3c (a dark gray) for the border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid #3c3c3c;
+    background: transparent;
 }
 
 .navbar .logo{
     height: 35px;
     color: #fff;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .navbar ul{
@@ -22,6 +26,7 @@
 
 .navbar li{
     cursor: pointer;
+    color: black; 
 }
 
 .nav-right{
@@ -34,9 +39,8 @@
     padding: 5px;
     border-radius: 5px;
     background-color: #2c2c2c;
-    color: black;
+    color: #ddd; 
     border: 2px solid #444;
-    background: transparent;
 }
 
 .navbar option{
@@ -60,7 +64,7 @@
     padding: 8px 16px;
     border: none;
     border-radius: 20px;
-    background-color: #4caf50;
+    background-color: #7927ff; 
     color: white;
     cursor: pointer;
     font-size: 16px;
@@ -69,4 +73,33 @@
 
 .navbar button img{
     width: 13px;
+}
+
+/* --- Media Layout Correction --- */
+
+@media (max-width: 850px){
+    /* 1. Hide the navigation links to save space */
+    .navbar ul {
+        display: none;
+    }
+
+    /* 2. Center the remaining elements (logo and nav-right) if needed, or just adjust padding */
+    .navbar {
+        /* Reduce horizontal padding on smaller screens */
+        padding: 15px 5%;
+    }
+
+    /* 3. Reduce button and select sizes for mobile */
+    .navbar button {
+        padding: 6px 10px;
+        font-size: 14px;
+        gap: 5px;
+    }
+    .navbar button img {
+        width: 10px;
+    }
+    .navbar select {
+        padding: 4px;
+        font-size: 14px;
+    }
 }
