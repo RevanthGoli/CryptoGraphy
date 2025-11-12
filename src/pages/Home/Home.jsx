@@ -5,40 +5,41 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
 
-const {allCoin, currency} = useContext(CoinContext);
-const [displayCoin, setDisplayCoin] = useState([]);
-const [input, setInput] = useState('');
+  const { allCoin, currency } = useContext(CoinContext);
+  const [displayCoin, setDisplayCoin] = useState([]);
+  const [input, setInput] = useState('');
 
-const inputHandler = (event)=>{
-  setInput(event.target.value);
-  if(event.target.value === ""){
-    setDisplayCoin(allCoin);
+  const inputHandler = (event) => {
+    setInput(event.target.value);
+    if (event.target.value === "") {
+      setDisplayCoin(allCoin);
+    }
   }
-}
 
-const searchHandler = async (event)=>{
-  event.preventDefault();
-  const coins = await allCoin.filter((item)=>{
-    return item.name.toLowerCase().includes(input.toLowerCase())
-  })
-  setDisplayCoin(coins);
-}
+  const searchHandler = async (event) => {
+    event.preventDefault();
+    const coins = await allCoin.filter((item) => {
+      return item.name.toLowerCase().includes(input.toLowerCase())
+    })
+    setDisplayCoin(coins);
+  }
 
-useEffect(()=>{
-  setDisplayCoin(allCoin);
-},[allCoin])
+  useEffect(() => {
+    setDisplayCoin(allCoin);
+  }, [allCoin])
 
   return (
     <div className='home'>
       <div className="hero">
-        <h1>Largest <br/> Crypto Marketplace</h1>
+        <h1>Largest <br /> Crypto Marketplace</h1>
         <p>Welcome to the world's largest cryptocurrency marketplace. Sign up to explore more about cryptos.</p>
+        <p>In the 24/7, borderless crypto market, a tracker is your non-stop sentinel. It automates the complex cost-basis accounting required for every swap, stake, and trade, ensuring you always know your true performance. It's the secure foundation that hands you financial sovereignty by providing immutable, verified data for trading decisions and effortless tax compliance.</p>
         <form onSubmit={searchHandler}>
 
-          <input onChange={inputHandler} list='coinlist' value={input} type="text" placeholder='Search crypto..' required/>
+          <input onChange={inputHandler} list='coinlist' value={input} type="text" placeholder='Search crypto..' required />
 
           <datalist id='coinlist'>
-            {allCoin.map((item, index)=>(<option key={index} value={item.name}/>))}
+            {allCoin.map((item, index) => (<option key={index} value={item.name} />))}
           </datalist>
 
           <button type="submit">Search</button>
@@ -49,11 +50,11 @@ useEffect(()=>{
           <p>#</p>
           <p>Coins</p>
           <p>Price</p>
-          <p style={{textAlign:"center"}}>24H Change</p>
+          <p style={{ textAlign: "center" }}>24H Change</p>
           <p className='market-cap'>Market Cap</p>
         </div>
         {
-          displayCoin.slice(0,10).map((item, index)=>(
+          displayCoin.slice(0, 10).map((item, index) => (
             <Link to={`/coin/${item.id}`} className="table-layout" key={index}>
               <p>{item.market_cap_rank}</p>
               <div>
@@ -61,13 +62,13 @@ useEffect(()=>{
                 <p>{item.name + " - " + item.symbol}</p>
               </div>
               <p>{currency.symbol} {item.current_price.toLocaleString()}</p>
-              <p className={item.price_change_percentage_24h>0?"green":"red"}>
-                {Math.floor(item.price_change_percentage_24h*100)/100}</p>
+              <p className={item.price_change_percentage_24h > 0 ? "green" : "red"}>
+                {Math.floor(item.price_change_percentage_24h * 100) / 100}</p>
               <p className='market-cap'>{currency.symbol} {item.market_cap.toLocaleString()}</p>
             </Link>
           ))
         }
-        
+
       </div>
     </div>
   )

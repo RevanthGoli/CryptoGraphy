@@ -19,6 +19,7 @@
     color: #e3e3e3;
     line-height: 1.5;
 }
+
 .hero form{
     padding: 8px;
     width: 80%;
@@ -36,6 +37,8 @@
     outline: none;
     border: none;
     padding-left: 10px;
+    background-color: white;
+
 }
 .hero button{
     border: none;
@@ -58,6 +61,7 @@
     padding: 15px 20px;
     align-items: center;
     border-bottom: 1px solid #3c3c3c;
+    color: white;
 }
 .market-cap{
     text-align: right;
